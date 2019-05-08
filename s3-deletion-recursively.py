@@ -6,7 +6,7 @@ import pandas as pd
 s3 = boto3.resource('s3')
 
 # select bucket
-my_bucket = s3.Bucket('employee1')
+my_bucket = s3.Bucket('<bucketname>')
 client = boto3.client('s3',aws_access_key_id='AKIAZSPQIDERL3OO25F4',aws_secret_access_key='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')
 #client = boto3.client('s3') #low-level functional API
 
@@ -21,7 +21,7 @@ for s3_object in my_bucket.objects.all():
         grid_sizes
         total_rows = grid_sizes.shape[0]
         if total_rows==2:
-            #s3HTTP(verb = "DELETE", bucket = "employee1",path = s3_object.key, parse_response = FALSE,key = 'AKIAZSPQIDERL3OO25F4', secret = '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')
+            #s3HTTP(verb = "DELETE", bucket = "employee1",path = s3_object.key, parse_response = FALSE,key = '<key>', secret = '<secret key>')
             s3.Object('employee1',s3_object.key).delete()
         total_rows
         print(total_rows)
